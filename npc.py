@@ -37,9 +37,9 @@ class Alchemist(Friend):
     def trade(self, player):
         for item in player.inventory:
             if isinstance(item, Glowing_Mushroom):
-                print(f"{self.name}: Thank you for the reagent. My mixture is now ready. Take this for your travels.\n{self.name} gives you {self.reward}!")
+                print(f"{self.name}: Thank you for the reagent. My mixture is now ready. Take this for your travels.\n{self.name} gives you {self.reward.capitalize()}!")
                 player.inventory.remove(item)
-                player.inventory.append(Healing_Potion("Healing Potion", "A ruby coloured liquid in a vial. Restores 10 health points."))
+                player.inventory.append(Healing_Potion("Healing Potion", "A ruby-coloured liquid in a vial. Restores 10 health points."))
                 return
         print(f"{self.name}: '{self.dialogue}'\n(You need a Glowing Mushroom.)")
 
@@ -54,7 +54,7 @@ class Wizard(Friend):
     def trade(self, player):
         for item in player.inventory:
             if isinstance(item, Spellbook):
-                print(f"{self.name}: You have found my spellbook! If I create you a sword would you take care of that imp for me?\n{self.name} gives you {self.reward}!")
+                print(f"{self.name}: You have found my Spellbook! If I create you a sword would you take care of that imp for me?\n{self.name} gives you {self.reward.capitalize()}!")
                 player.inventory.remove(item)
                 player.inventory.append(Magical_Sword("Magical Sword", "A sword imbued with magical energy. It is effective in banishing summoned creatures."))
                 return
@@ -82,5 +82,5 @@ class Imp(Enemy):
         player.health -= 10
         print(f"{player.name} health: {player.health}")
         if player.health <= 0:
-            print("You have been defeated. Game over.")
+            print("You have been defeated.")
             exit()

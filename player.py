@@ -16,25 +16,21 @@ class Player:
     def move(self, direction):
         if direction in room.rooms[self.current_room]["exits"]:
             self.current_room = room.rooms[self.current_room]["exits"][direction]
-            # Change room name output on move to correct grammar for readability
-            if self.current_room == "wizards_quarters":
-                print("You move to the Wizard's Quarters.")
-            else:
-                print(f"You move {direction} to the {self.current_room.capitalize()}.")
+             # Use formatted room names for better output readability
+            formatted_room_name = room.formatted_room_names.get(self.current_room, self.current_room)
+            print(f"You move {direction} to the {formatted_room_name}.")
         else:
             print("You can't go that way.")
     
     # Create method to search room for items
     def search(self):
         current_room_items = room.rooms[self.current_room]["items"]
+        # Use formatted room names for better output readability
+        formatted_room_name = room.formatted_room_names.get(self.current_room, self.current_room)
         if current_room_items:
-            print(f"Available items in {self.current_room.capitalize()}: {[item.item_name for item in current_room_items]}")
+            print(f"Available items in {formatted_room_name}: {[item.item_name for item in current_room_items]}")
         else:
-            # Change room name output on search to correct grammar for readability
-            if self.current_room == "wizards_quarters":
-                print("There are no items to pick up in the Wizard's Quarters.")
-            else:
-                print(f"There are no items to pick up in the {self.current_room.capitalize()}")
+            print(f"There are no items to pick up in the {formatted_room_name}.")
 
     # Create method to pick up items
     def pickup(self, item_name):
@@ -59,7 +55,7 @@ class Player:
         if isinstance(enemy, Enemy):
             # Check if player has the Magical Sword in their inventory
             if any(isinstance(item, Magical_Sword) for item in self.inventory):
-                print(f"You swing your magical sword at {enemy.name}!")
+                print(f"You swing your Magical Sword at {enemy.name}!")
                 enemy.health -= 10
                 print(f"{enemy.name} health: {enemy.health}")
                 # Trigger enemy counterattack

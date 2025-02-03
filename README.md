@@ -54,6 +54,9 @@ python main.py
 
 ## 📝 Changelog
 
+### Version 1.2.1 (Feb 2025)
+- ✅ Updated formatting for room names, room descriptions and item names for better output readability.
+
 ### Version 1.2 (Feb 2025)
 - ✅ Implemented combat by updating player attack method to check for sword in inventory, enemy in room and enemy specified in attack command. Added player attack to game loop.
 - ✅ Added turn-based Imp attack to occur following player attack.

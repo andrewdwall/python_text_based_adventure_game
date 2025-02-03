@@ -8,8 +8,8 @@ from items import Glowing_Mushroom, Spellbook
 player = Player("Hero")
 
 # Create instances of NPCs
-alchemist = Alchemist("Alchemist", "An alchemist brewing a curious mixture in a cauldron, he seems overwhelmed.", "Quick pass me that glowing mushroom over there! I need to complete this batch of potion", "glowing mushroom", "healing potion")
-wizard = Wizard("Wizard", "A wizard dressed in long robes, he is searching the shelves for something.", "My spell backfired and I lost control of my summoned imp. It is locked in my quarters. I need to find my spellbook to banish it.", "spellbook", "magical sword")
+alchemist = Alchemist("Alchemist", "An alchemist brewing a curious mixture in a cauldron, he seems overwhelmed.", "Quick! pass me that Glowing Mushroom over there! I need to complete this batch of potion", "glowing mushroom", "healing potion")
+wizard = Wizard("Wizard", "A wizard dressed in long robes, he is searching the shelves for something.", "My spell backfired and I lost control of my summoned Imp. It is locked in my quarters. I need to find my Spellbook to banish it.", "spellbook", "magical sword")
 imp = Imp("Imp", "A small fiend surrounded by an aura of fire.", "The imp speaks in a demonic tongue that you can't understand.")
 
 # Assign NPCs to rooms
