@@ -11,21 +11,21 @@ python main.py
 ```
 
 2. Use text commands to interact with the game:
-- move <direction> - Move to another room
-- search - Search the room for items
-- pickup <item> - Pick up an item in the room
-- inventory - View items in inventory
-- inspect - Inspect NPC in the current room to receive a description of them
-- speak - Speak with the NPC in the current room
-- trade - Trade with the NPC in the current room
-- attack <enemy> - Engage in combat with enemy in current room ***Requires addition and test***
-- quit - Exit the game
+- `move <direction>` - Move to another room
+- `search` - Search the room for items
+- `pickup <item name>` - Pick up an item in the room
+- `inventory` - View items in inventory
+- `inspect` - Inspect NPC in the current room to receive a description of them
+- `speak` - Speak with the NPC in the current room
+- `trade` - Trade with the NPC in the current room
+- `attack <enemy name>` - Engage in combat with an enemy in the current room
+- `quit` - Exit the game
 
 ## 🛠️ Features
 - 🗺️ **Exploration** Navigate through different rooms with unique descriptions.
 - 🧙‍♂️ **NPC Interactions** Engage with friendly and hostile NPCs.
 - 🎒 **Inventory System** Collect and trade items.
-- 🗡️ **Combat Mechanics** Battle enemies and gain rewards. ***To be implemented***
+- 🗡️ **Combat Mechanics** Battle enemies and gain rewards.
 
 ## 📂 File Structure
 ```
@@ -41,20 +41,29 @@ python main.py
 ## 🚀 Installation & Requirements
 - Python 3.x required
 
-## 🔧 Development and Bug Fixes
-- **Add enemy combat to game Loop and test**
-
 ## 🛤️ Future Plans & Expansion
 - 🏆 **Add Loot System** Add dropped items from enemies.
 - 🔥 **Companion System** Implement summoning mechanic for imp with acquired item after defeat.
 - 🏹 **Develop Combat and Health Mechanics** Create new enemies, attack types and healing action.
 - 🎭 **Character Customisation** Include ability to choose player name and class mechanics.
-- 🏔️ **Expand World** Add complexity to story and exploration of new locations.
+- 🏔️ **Expand World** Add complexity to story, new NPCs and exploration of new locations.
+
+## 🔧 Development and Bug Fixes
+- **Expand NPC dialogue to update dynamically based on game progress**
+- **Update inspect, speak and trade methods/commands to specify NPC name, allowing future addition of multiple NPCs in one room**
 
 ## 📝 Changelog
 
+### Version 1.2 (Feb 2025)
+- ✅ Implemented combat by updating player attack method to check for sword in inventory, enemy in room and enemy specified in attack command. Added player attack to game loop.
+- ✅ Added turn-based Imp attack to occur following player attack.
+- ✅ Combat mechanics tested and working.
+- ✅ Fixed error when attempting to trade with enemy.
+- ✅ Fixed quit command to allow player to continue adventure.
+- ✅ Output formatting improvements.
+
 ### Version 1.1.1 (Feb 2025)
-- ✅ Fixed reward items to now be instantiated as objects in the npc.py trade method and removed instances of reward items from main.py. Inventory now functioning with reward items.
+- ✅ Fixed reward items to now be instantiated as objects in the npc.py trade method and removed instances of reward items from main.py. Inventory now functioning with reward objects.
 
 ### Version 1.1 (Feb 2025)
 - ✅ Fixed item pickup mechanism.
