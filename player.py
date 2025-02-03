@@ -28,12 +28,12 @@ class Player:
 
     # Create method to pick up items
     def pickup(self, item_name):
-        current_room_items = room.rooms[self.current_room]["items"] 
+        current_room_items = room.rooms[self.current_room]["items"]
         for item in current_room_items:
-            if item.item_name.lower() == item_name:
+            if item.item_name.lower() == item_name.lower():
                 self.inventory.append(item)
                 current_room_items.remove(item)
-                print(f"Picked up {item.item_name}")
+                print(f"You picked up the {item.item_name}.")
                 return
         print("That item is not here.")
 

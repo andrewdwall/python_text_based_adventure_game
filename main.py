@@ -9,7 +9,7 @@ player = Player("Hero")
 
 # Create instances of NPCs
 alchemist = Alchemist("Alchemist", "An alchemist brewing a curious mixture in a cauldron, he seems overwhelmed.", "Quick pass me that glowing mushroom over there! I need to complete this batch of potion", "glowing mushroom", "healing potion")
-wizard = Wizard("Wizard", "A man dressed in long robes, he is searching the shelves for something.", "My spell backfired and I lost control of my summoned imp. It is locked in my quarters. I need to find my spellbook to banish it.", "spellbook", "magical sword")
+wizard = Wizard("Wizard", "A wizard dressed in long robes, he is searching the shelves for something.", "My spell backfired and I lost control of my summoned imp. It is locked in my quarters. I need to find my spellbook to banish it.", "spellbook", "magical sword")
 imp = Imp("Imp", "A small fiend surrounded by an aura of fire.", "The imp speaks in a demonic tongue that you can't understand.")
 
 # Assign NPCs to rooms
@@ -29,10 +29,14 @@ room.rooms["library"]["items"] = [spellbook]
 
 # Create game loop to include each method
 def game_loop():
+    last_room = None  # Track last room the player was in
     while True:
-        print(f"\n{room.rooms[player.current_room]['description']}")  # Print room description
+        # Print room description
+        if player.current_room != last_room:
+            print(f"\n{room.rooms[player.current_room]['description']}")
+            last_room = player.current_room  # Update last room
 
-        command = input("> ").lower().split()
+        command = input("> ").lower().split()  # Displays > and awaits case-insensitive user input
 
         if len(command) == 0:
             continue
@@ -48,9 +52,11 @@ def game_loop():
 
         elif command[0] in ["pickup"]:
             if len(command) > 1:
-                player.pickup(command[1])
+                item_name = " ".join(command[1:])
+                item_name = item_name.lower()
+                player.pickup(item_name)
             else:
-                print("No item to pick up.")
+                print("Specify item to pick up")
         
         elif command[0] == "inspect":
             npc = room.rooms[player.current_room].get("npc")

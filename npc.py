@@ -37,11 +37,11 @@ class Alchemist(Friend):
     def trade(self, player):
         for item in player.inventory:
             if isinstance(item, Glowing_Mushroom):
-                print(f"{self.name}: Thank you for the reagent. My mixture is now ready. Take this for your travels.\n {self.name} gives you {self.reward}!")
+                print(f"{self.name}: Thank you for the reagent. My mixture is now ready. Take this for your travels.\n{self.name} gives you {self.reward}!")
                 player.inventory.remove(item)
                 player.inventory.append(self.reward)
                 return
-        print(f"{self.name}: '{self.dialogue}'\n (You need a Glowing Mushroom.)")
+        print(f"{self.name}: '{self.dialogue}'\n(You need a Glowing Mushroom.)")
 
 
 # Create Wizard subclass
@@ -54,11 +54,11 @@ class Wizard(Friend):
     def trade(self, player):
         for item in player.inventory:
             if isinstance(item, Spellbook):
-                print(f"{self.name}: You have found my spellbook! If I create you a sword would you take care of that imp for me?\n {self.name} gives you {self.reward}!")
+                print(f"{self.name}: You have found my spellbook! If I create you a sword would you take care of that imp for me?\n{self.name} gives you {self.reward}!")
                 player.inventory.remove(item)
                 player.inventory.append(self.reward)
                 return
-        print(f"{self.name}: '{self.dialogue}'\n (You need a Spellbook.)")
+        print(f"{self.name}: '{self.dialogue}'\n(You need a Spellbook.)")
 
 
 # Create Enemy subclass
@@ -80,7 +80,7 @@ class Imp(Enemy):
     def imp_attack(self, player):
         print(f"{self.name} hurls a fireball at you!")
         player.health -= 10
-        print(f"{player.name} health: {player.health}.")
+        print(f"{player.name} health: {player.health}")
         if player.health <= 0:
             print("You have been defeated. Game over.")
             exit()
