@@ -39,7 +39,7 @@ class Alchemist(Friend):
             if isinstance(item, Glowing_Mushroom):
                 print(f"{self.name}: Thank you for the reagent. My mixture is now ready. Take this for your travels.\n{self.name} gives you {self.reward}!")
                 player.inventory.remove(item)
-                player.inventory.append(self.reward)
+                player.inventory.append(Healing_Potion("Healing Potion", "A ruby coloured liquid in a vial. Restores 10 health points."))
                 return
         print(f"{self.name}: '{self.dialogue}'\n(You need a Glowing Mushroom.)")
 
@@ -56,7 +56,7 @@ class Wizard(Friend):
             if isinstance(item, Spellbook):
                 print(f"{self.name}: You have found my spellbook! If I create you a sword would you take care of that imp for me?\n{self.name} gives you {self.reward}!")
                 player.inventory.remove(item)
-                player.inventory.append(self.reward)
+                player.inventory.append(Magical_Sword("Magical Sword", "A sword imbued with magical energy. It is effective in banishing summoned creatures."))
                 return
         print(f"{self.name}: '{self.dialogue}'\n(You need a Spellbook.)")
 

@@ -53,10 +53,14 @@ python main.py
 
 ## 📝 Changelog
 
+### Version 1.1.1 (Feb 2025)
+- ✅ Fixed reward items to now be instantiated as objects in the npc.py trade method and removed instances of reward items from main.py. Inventory now functioning with reward items.
+
 ### Version 1.1 (Feb 2025)
 - ✅ Fixed item pickup mechanism.
 - ✅ Trade mechanics tested and working.
 - ✅ Changed room description to print only on movement between rooms and not after every action.
+
 
 ### Version 1.0 (Jan 2025)
 - Initial release with 3 explorable rooms and NPC speak interaction.

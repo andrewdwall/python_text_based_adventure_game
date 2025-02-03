@@ -17,11 +17,9 @@ room.rooms["apothecary"]["npc"] = alchemist
 room.rooms["library"]["npc"] = wizard
 room.rooms["wizards_quarters"]["npc"] = imp
 
-# Create instances of items
+# Create instances room items
 glowing_mushroom = Glowing_Mushroom("Glowing Mushroom", "A bioilluminescent fungus that has a green glow. It has alchemical properties.")
 spellbook = Spellbook("Spellbook", "A tome of arcane sigils and incantations.")
-magical_sword = Magical_Sword("Magical Sword", "A sword imbued with magical energy. It is effective in banishing summoned creatures.")
-healing_potion = Healing_Potion("Healing Potion", "A ruby coloured liquid in a vial. Restores 10 health points.")
 
 # Assign items to rooms
 room.rooms["apothecary"]["items"] = [glowing_mushroom]
@@ -29,12 +27,13 @@ room.rooms["library"]["items"] = [spellbook]
 
 # Create game loop to include each method
 def game_loop():
+
     last_room = None  # Track last room the player was in
     while True:
         # Print room description
         if player.current_room != last_room:
             print(f"\n{room.rooms[player.current_room]['description']}")
-            last_room = player.current_room  # Update last room
+            last_room = player.current_room
 
         command = input("> ").lower().split()  # Displays > and awaits case-insensitive user input
 
@@ -80,7 +79,7 @@ def game_loop():
                 print("You need the required item to trade.")
     
         elif command[0] == "inventory":
-            print(f"Inventory: {', '.join(item.item_name for item in player.inventory)}")
+            print(f"Inventory: {', '.join(item.item_name for item in player.inventory) if player.inventory else 'Empty'}")
 
         elif command[0] == "quit":
             print("End adventure?")
